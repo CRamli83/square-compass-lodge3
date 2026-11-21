@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square & Compass Lodge No. 3 | Grand Lodge of Japan</title>
+  <meta name="description" content="Square and Compass Lodge No. 3 (Kunitachi Lodge), under the jurisdiction of the Most Worshipful Grand Lodge of Free and Accepted Masons of Japan. Meetings first Sunday of the month at Kunitachi Masonic Center.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1c2e;
+      --gold: #c9a227;
+      --gold-light: #e8d5a3;
+      --cream: #f8f4ec;
+      --ink: #1a1612;
+      --muted: #6b6560;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header */
+    header {
+      background: var(--navy);
+      color: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(201,162,39,0.3);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-seal-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      background: transparent;
+    }
+    .brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+    .brand-text small { display: block; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold-light); font-family: 'Inter', sans-serif; }
+    nav ul { display: flex; gap: 1.5rem; list-style: none; }
+    nav a { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+    nav a:hover { color: var(--gold); }
+    .lang { font-size: 0.8rem; }
+    .menu-toggle { display: none; background: none; border: 1px solid var(--gold); color: var(--gold); padding: 0.4rem 0.6rem; cursor: pointer; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #1a2a45 100%);
+      color: var(--cream);
+      padding: 6rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "\u2020";
+      position: absolute;
+      font-size: 20rem;
+      opacity: 0.03;
+      top: -4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: serif;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero p { max-width: 640px; margin: 0 auto 2rem; font-weight: 300; font-size: 1.15rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.8rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: var(--gold); color: var(--navy); }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    /* Sections */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1.5rem; color: var(--navy); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      border: 1px solid #e8e2d8;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--navy); }
+    .tenet { text-align: center; }
+    .tenet .num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 1.5rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto 2rem; }
+    .footer-grid h4 { font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--gold); }
+    .footer-grid ul { list-style: none; }
+    .footer-grid li { margin-bottom: 0.4rem; }
+    .copyright { text-align: center; border-top: 1px solid rgba(201,162,39,0.2); padding-top: 1.5rem; font-size: 0.8rem; color: var(--muted); max-width: 1100px; margin: 0 auto; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy); padding: 1rem; }
+      nav.open ul { display: flex; }
+      .menu-toggle { display: block; }
+      .grid-2, .grid-3, .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 4rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="Square & Compass Lodge No. 3 Seal" class="brand-seal-img">
+        <div class="brand-text">
+          SQUARE & COMPASS
+          <small>LODGE NO. 3 · GRAND LODGE OF JAPAN</small>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">Menu</button>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#meetings">Meetings</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang">EN | 日本語</div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <img src="logo.png" alt="Square & Compass Lodge No. 3 Seal" style="width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem; border: 3px solid var(--gold); object-fit: cover;">
+      <div class="subtitle">Grand Lodge of Japan</div>
+      <h1>Square & Compass<br>Lodge No. 3</h1>
+      <p>A brotherhood of good men meeting on the level in Kunitachi, Tokyo — guided by the ancient principles of Brotherly Love, Relief, and Truth.</p>
+      <a href="#membership" class="btn btn-primary">Inquire About Membership</a>
+      &nbsp;&nbsp;
+      <a href="#about" class="btn">Our History</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-label">Our Story</div>
+      <h2>Kunitachi Lodge</h2>
+      <div class="grid-2">
+        <div>
+          <p>Square and Compass Lodge No. 3, also known as Kunitachi Lodge, holds the distinction of being the third lodge accepted under the jurisdiction of the Most Worshipful Grand Lodge of Free and Accepted Masons of Japan.</p>
+          <p style="margin-top:1rem;">Its origins trace to the post-war period, when Freemasonry was re-established in Japan. The lodge grew from a military lodge associated with the Tachikawa base and later established its home at the Kunitachi Masonic Center. Over more than five decades it has welcomed members of diverse nationalities and backgrounds, united by the Craft.</p>
+          <p style="margin-top:1rem;">Today the lodge continues to meet monthly, primarily in Japanese with English also spoken, fostering brotherhood across cultures while supporting community activities in Kunitachi.</p>
+        </div>
+        <div class="card">
+          <h3>Key Facts</h3>
+          <ul style="list-style:none; margin-top:1rem;">
+            <li style="margin-bottom:0.75rem;"><strong>Chartered under:</strong> Grand Lodge of Japan</li>
+            <li style="margin-bottom:0.75rem;"><strong>Location:</strong> Kunitachi Masonic Center</li>
+            <li style="margin-bottom:0.75rem;"><strong>Address:</strong> 3-1-1 Naka, Kunitachi, Tokyo 186-0004</li>
+            <li style="margin-bottom:0.75rem;"><strong>Meetings:</strong> First Sunday of the month</li>
+            <li><strong>Language:</strong> Primarily Japanese (English also used)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;" id="tenets">
+    <div class="container">
+      <div class="section-label">The Craft</div>
+      <h2 style="text-align:center;">Brotherly Love, Relief & Truth</h2>
+      <div class="grid-3" style="margin-top:2rem;">
+        <div class="tenet">
+          <span class="num">I</span>
+          <h3>Brotherly Love</h3>
+          <p>We regard the whole human species as one family, regardless of race, station, or belief.</p>
+        </div>
+        <div class="tenet">
+          <span class="num">II</span>
+          <h3>Relief</h3>
+          <p>To soothe the unhappy, sympathize with their misfortunes, and restore peace to troubled minds.</p>
+        </div>
+        <div class="tenet">
+          <span class="num">III</span>
+          <h3>Truth</h3>
+          <p>The foundation of every virtue. To be good and true is the first lesson taught in Masonry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="membership">
+    <div class="container">
+      <div class="section-label">The First Step</div>
+      <h2>Membership</h2>
+      <p style="max-width:700px; margin-bottom:2rem;">Freemasonry does not solicit members. Every man who becomes a Mason does so entirely of his own free will. “Ask, and the door shall be opened.”</p>
+      <div class="grid-2">
+        <div>
+          <h3>Who May Petition?</h3>
+          <ul style="margin-top:1rem; padding-left:1.2rem;">
+            <li>A man of legal adult age</li>
+            <li>Of good moral character and reputation</li>
+            <li>Believes in a Supreme Being (of any faith)</li>
+            <li>Comes of his own free will — never invited or solicited</li>
+            <li>Able to support himself and his family</li>
+          </ul>
+          <p style="margin-top:1.5rem; font-style:italic; color:var(--muted);">Membership is for men only, in accordance with traditional Masonic practice under the United Grand Lodge of England model followed by the Grand Lodge of Japan. Family events and affiliated organizations welcome wider participation.</p>
+        </div>
+        <div class="card">
+          <h3>The Path</h3>
+          <ol style="margin-top:1rem; padding-left:1.2rem;">
+            <li style="margin-bottom:0.6rem;">Make an inquiry</li>
+            <li style="margin-bottom:0.6rem;">Submit a petition</li>
+            <li style="margin-bottom:0.6rem;">Investigation by a committee</li>
+            <li style="margin-bottom:0.6rem;">Ballot of the lodge</li>
+            <li>Conferral of the three degrees</li>
+          </ol>
+          <a href="mailto:squareandcompassno3@gmail.com?subject=Membership%20Inquiry" class="btn" style="margin-top:1.5rem; display:inline-block;">Contact the Lodge</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;" id="meetings">
+    <div class="container">
+      <div class="section-label">Regular Communications</div>
+      <h2>Meetings & Events</h2>
+      <div class="grid-2">
+        <div>
+          <p>Square & Compass Lodge No. 3 holds its stated meetings on the <strong>first Sunday of each month</strong> at the Kunitachi Masonic Center.</p>
+          <p style="margin-top:1rem;">Meetings typically begin in the early afternoon (around 13:00). A meal or fellowship often precedes the formal communication.</p>
+          <p style="margin-top:1rem;">The lodge also participates in community activities, including children’s events in Kunitachi City, reflecting the principle of relief and service.</p>
+        </div>
+        <div class="card">
+          <h3>Visit / Inquire</h3>
+          <p>Interested men of good character are welcome to inquire about attending an open event or learning more. Contact the lodge secretary for current details.</p>
+          <p style="margin-top:1rem;"><strong>Email:</strong> squareandcompassno3@gmail.com</p>
+          <p style="margin-top:0.5rem;"><strong>Address:</strong><br>Kunitachi Masonic Center<br>3-1-1 Naka<br>Kunitachi, Tokyo 186-0004<br>Japan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container" style="text-align:center;">
+      <div class="section-label">Reach Out</div>
+      <h2>Contact</h2>
+      <p style="max-width:600px; margin:0 auto 2rem;">For membership inquiries, event information, or general questions, please contact the lodge.</p>
+      <a href="mailto:squareandcompassno3@gmail.com" class="btn btn-primary">squareandcompassno3@gmail.com</a>
+      <p style="margin-top:2rem; color:var(--muted);">Kunitachi Masonic Center · 3-1-1 Naka, Kunitachi, Tokyo 186-0004, Japan</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Square & Compass Lodge No. 3</h4>
+        <p>A dignified brotherhood under the jurisdiction of the Grand Lodge of Japan, meeting in Kunitachi, Tokyo.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About the Lodge</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#meetings">Meetings</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://www.grandlodgeofjapan.org/" target="_blank" rel="noopener">Grand Lodge of Japan</a></li>
+          <li><a href="http://squareandcompassno3.com" target="_blank" rel="noopener">Original Site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Square & Compass Lodge No. 3 — Grand Lodge of Japan<br>
+      <small>Website prepared in the spirit of the lodge’s public information. Content adapted from historical and publicly available sources.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('nav').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
