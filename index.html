@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Square & Compass Lodge No. 3 | Grand Lodge of Japan</title>
+  <title>Square &amp; Compass Lodge No. 3 | Grand Lodge of Japan</title>
   <meta name="description" content="Square and Compass Lodge No. 3 (Kunitachi Lodge), under the jurisdiction of the Most Worshipful Grand Lodge of Free and Accepted Masons of Japan. Meetings first Sunday of the month at Kunitachi Masonic Center.">
+  <link rel="canonical" href="https://cramli83.github.io/square-compass-lodge3/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cramli83.github.io/square-compass-lodge3/">
+  <meta property="og:title" content="Square &amp; Compass Lodge No. 3 | Grand Lodge of Japan">
+  <meta property="og:description" content="Square and Compass Lodge No. 3 (Kunitachi Lodge), under the jurisdiction of the Most Worshipful Grand Lodge of Free and Accepted Masons of Japan. Meetings first Sunday of the month at Kunitachi Masonic Center.">
+  <meta property="og:image" content="https://cramli83.github.io/square-compass-lodge3/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Square &amp; Compass Lodge No. 3 | Grand Lodge of Japan">
+  <meta name="twitter:description" content="Square and Compass Lodge No. 3 (Kunitachi Lodge), under the jurisdiction of the Most Worshipful Grand Lodge of Free and Accepted Masons of Japan. Meetings first Sunday of the month at Kunitachi Masonic Center.">
+  <meta name="twitter:image" content="https://cramli83.github.io/square-compass-lodge3/og-image.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0f1c2e;
@@ -16,6 +31,8 @@
       --cream: #f8f4ec;
       --ink: #1a1612;
       --muted: #6b6560;
+      --gold-dark: #866c1a;
+      --footer-muted: #d4cfc4;
       --white: #ffffff;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,6 +46,28 @@
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto; display: block; }
+    .skip-link {
+      position: absolute;
+      left: 0.75rem;
+      top: -100px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.6rem 1rem;
+      z-index: 200;
+      font-weight: 500;
+    }
+    .skip-link:focus-visible {
+      top: 0.75rem;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .menu-toggle:focus-visible {
+      outline-offset: 2px;
+    }
+
 
     /* Header */
     header {
@@ -47,6 +86,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      position: relative;
     }
     .brand {
       display: flex;
@@ -70,7 +110,7 @@
     nav ul { display: flex; gap: 1.5rem; list-style: none; }
     nav a { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
     nav a:hover { color: var(--gold); }
-    .lang { font-size: 0.8rem; }
+    .lang { font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gold-light); }
     .menu-toggle { display: none; background: none; border: 1px solid var(--gold); color: var(--gold); padding: 0.4rem 0.6rem; cursor: pointer; }
 
     /* Hero */
@@ -83,7 +123,7 @@
       overflow: hidden;
     }
     .hero::before {
-      content: "\u2020";
+      content: "†";
       position: absolute;
       font-size: 20rem;
       opacity: 0.03;
@@ -127,7 +167,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dark);
       margin-bottom: 0.5rem;
     }
     h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1.5rem; color: var(--navy); }
@@ -151,10 +191,10 @@
       font-size: 0.9rem;
     }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto 2rem; }
-    .footer-grid h4 { font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--gold); }
+    .footer-grid h2 { font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--gold); }
     .footer-grid ul { list-style: none; }
     .footer-grid li { margin-bottom: 0.4rem; }
-    .copyright { text-align: center; border-top: 1px solid rgba(201,162,39,0.2); padding-top: 1.5rem; font-size: 0.8rem; color: var(--muted); max-width: 1100px; margin: 0 auto; }
+    .copyright { text-align: center; border-top: 1px solid rgba(201,162,39,0.2); padding-top: 1.5rem; font-size: 0.8rem; color: var(--footer-muted); max-width: 1100px; margin: 0 auto; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -167,17 +207,18 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header>
     <div class="header-inner">
       <a href="#home" class="brand">
-        <img src="logo.png" alt="Square & Compass Lodge No. 3 Seal" class="brand-seal-img">
+        <img src="logo.png" alt="Square &amp; Compass Lodge No. 3 Seal" class="brand-seal-img" width="56" height="56">
         <div class="brand-text">
-          SQUARE & COMPASS
+          SQUARE &amp; COMPASS
           <small>LODGE NO. 3 · GRAND LODGE OF JAPAN</small>
         </div>
       </a>
-      <button class="menu-toggle" aria-label="Menu">Menu</button>
-      <nav>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Primary">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -186,15 +227,16 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <div class="lang">EN | 日本語</div>
+      <div class="lang">EN</div>
     </div>
   </header>
 
+  <main id="main">
   <section class="hero" id="home">
     <div class="container">
-      <img src="logo.png" alt="Square & Compass Lodge No. 3 Seal" style="width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem; border: 3px solid var(--gold); object-fit: cover;">
+      <img src="logo.png" alt="Square &amp; Compass Lodge No. 3 Seal" width="140" height="140" style="width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem; border: 3px solid var(--gold); object-fit: cover;">
       <div class="subtitle">Grand Lodge of Japan</div>
-      <h1>Square & Compass<br>Lodge No. 3</h1>
+      <h1>Square &amp; Compass<br>Lodge No. 3</h1>
       <p>A brotherhood of good men meeting on the level in Kunitachi, Tokyo — guided by the ancient principles of Brotherly Love, Relief, and Truth.</p>
       <a href="#membership" class="btn btn-primary">Inquire About Membership</a>
       &nbsp;&nbsp;
@@ -229,7 +271,7 @@
   <section style="background:#fff;" id="tenets">
     <div class="container">
       <div class="section-label">The Craft</div>
-      <h2 style="text-align:center;">Brotherly Love, Relief & Truth</h2>
+      <h2 style="text-align:center;">Brotherly Love, Relief &amp; Truth</h2>
       <div class="grid-3" style="margin-top:2rem;">
         <div class="tenet">
           <span class="num">I</span>
@@ -285,10 +327,10 @@
   <section style="background:#fff;" id="meetings">
     <div class="container">
       <div class="section-label">Regular Communications</div>
-      <h2>Meetings & Events</h2>
+      <h2>Meetings &amp; Events</h2>
       <div class="grid-2">
         <div>
-          <p>Square & Compass Lodge No. 3 holds its stated meetings on the <strong>first Sunday of each month</strong> at the Kunitachi Masonic Center.</p>
+          <p>Square &amp; Compass Lodge No. 3 holds its stated meetings on the <strong>first Sunday of each month</strong> at the Kunitachi Masonic Center.</p>
           <p style="margin-top:1rem;">Meetings typically begin in the early afternoon (around 13:00). A meal or fellowship often precedes the formal communication.</p>
           <p style="margin-top:1rem;">The lodge also participates in community activities, including children’s events in Kunitachi City, reflecting the principle of relief and service.</p>
         </div>
@@ -312,14 +354,16 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     <div class="footer-grid">
       <div>
-        <h4>Square & Compass Lodge No. 3</h4>
+        <h2>Square &amp; Compass Lodge No. 3</h2>
         <p>A dignified brotherhood under the jurisdiction of the Grand Lodge of Japan, meeting in Kunitachi, Tokyo.</p>
       </div>
       <div>
-        <h4>Navigation</h4>
+        <h2>Navigation</h2>
         <ul>
           <li><a href="#about">About the Lodge</a></li>
           <li><a href="#membership">Membership</a></li>
@@ -328,22 +372,30 @@
         </ul>
       </div>
       <div>
-        <h4>Links</h4>
+        <h2>Links</h2>
         <ul>
           <li><a href="https://www.grandlodgeofjapan.org/" target="_blank" rel="noopener">Grand Lodge of Japan</a></li>
-          <li><a href="http://squareandcompassno3.com" target="_blank" rel="noopener">Original Site</a></li>
         </ul>
       </div>
     </div>
     <div class="copyright">
-      © 2026 Square & Compass Lodge No. 3 — Grand Lodge of Japan<br>
+      © 2026 Square &amp; Compass Lodge No. 3 — Grand Lodge of Japan<br>
       <small>Website prepared in the spirit of the lodge’s public information. Content adapted from historical and publicly available sources.</small>
     </div>
   </footer>
 
   <script>
-    document.querySelector('.menu-toggle').addEventListener('click', () => {
-      document.querySelector('nav').classList.toggle('open');
+    const menuToggle = document.getElementById('menu-toggle');
+    const siteNav = document.getElementById('site-nav');
+    menuToggle.addEventListener('click', () => {
+      const open = siteNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    siteNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
     });
   </script>
 </body>
